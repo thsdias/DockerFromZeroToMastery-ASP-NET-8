@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   db:
-    image: mysql:8.0.29
+    image: docker-from-zero-to-mastery-dotnet-8-db
     command: mysqld --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
@@ -17,7 +17,7 @@ services:
     expose:
       - 3308
     networks:
-      - dotnet-network
+      - curso_docker_dotnet-network
 
   docker-from-zero-to-mastery-dotnet-8:
     image: docker-from-zero-to-mastery-dotnet-8
@@ -34,8 +34,8 @@ services:
     depends_on:
       - db
     networks:
-      - dotnet-network
+      - curso_docker_dotnet-network
 
 networks:
-  dotnet-network:
+  curso_docker_dotnet-network:
     driver: bridge
